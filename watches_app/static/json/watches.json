@@ -1,0 +1,32 @@
+[
+    {
+        "product_name": "Casio G-Shock",
+        "strap_color": "Black",
+        "highlights": "Shock resistant, 200M water resistant",
+        "price": 150
+    },
+    {
+        "product_name": "Fossil Sport",
+        "strap_color": "Green",
+        "highlights": "Heart rate tracker, GPS, swim-proof",
+        "price": 200
+    },
+    {
+        "product_name": "Timex Weekender",
+        "strap_color": "Brown",
+        "highlights": "Water resistant up to 30 meters, Indiglo night-light",
+        "price": 50
+    },
+    {
+        "product_name": "Seiko 5",
+        "strap_color": "Silver",
+        "highlights": "Automatic movement, Day-date display",
+        "price": 200
+    },
+    {
+        "product_name": "Skagen Holst",
+        "strap_color": "Black",
+        "highlights": "Minimalistic design, Water resistant",
+        "price": 130
+    }
+]

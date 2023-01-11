@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Login</h2>
+        {% if error %}
+            <p class="alert alert-danger">{{ error }}</p>
+        {% endif %}
+        <form method="post" action="{% url 'login_view' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Log In">
+        </form>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Login using google</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'socialaccount_signup' %}">Sign up using google</a>
+        </li>
+
+    </div>
+{% endblock %}
