@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ProductForm
-from .models import Product
+from .models import Product,Cart
 import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -85,6 +85,23 @@ def buy_product(request, product_id):
 def cart(request):
     cart_items = get_cart_items(request)
     return render(request, 'ecommerce/cart.html', {'cart_items': cart_items})
+
+
+def add_to_cart(request):
+    product_name = request.POST.get('product_name')
+    price = request.POST.get('price')
+
+    user = request.user
+    cart_item = Cart.objects.create(product_name=product_name,price=price, user=user, quantity=1)
+    cart_item.save()
+    return redirect('landing_page')
+
+def checkout(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    total_cost = sum([item.price * item.quantity for item in cart_items])
+    return render(request, 'ecommerce/checkout.html', {'cart_items': cart_items, 'total_cost': total_cost})
+
+
 
 # def checkout(request):
 #     """

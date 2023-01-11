@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Checkout</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Total: ${{ total_cost }}</p>
+    <form method="post" action="">
+    {% csrf_token %}
+    <label>Shipping Address :</label>
+    <input type="text" name="address"  placeholder="Shipping Address" required>
+    <br>
+    <button type="submit">Place Order</button>
+    </form>
+{% endblock %}

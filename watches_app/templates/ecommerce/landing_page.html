@@ -26,6 +26,14 @@
                             <a href="{% url 'edit_product' watch.product_id %}" class="btn btn-primary">Edit</a>
                             <a href="{% url 'delete_product' watch.product_id %}" class="btn btn-danger">Delete</a>
                         {% endif %}
+                    <form method="POST" action="{% url 'add_to_cart' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_name" value="{{ watch.product_name }}">
+                        <input type="hidden" name="price" value="{{ watch.price }}">
+
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                    <a href="{% url 'checkout' %}"><input type="submit" value="Checkout"></a>
 
                     </td>
                     </tr>
